@@ -1026,14 +1026,9 @@
     }
 
     async function syncStateToCloud() {
-      if (!supabaseClient || !currentUser || isApplyingRemoteState) {
-        console.log("[sync] skipped — client:", !!supabaseClient, "user:", !!currentUser, "applying:", isApplyingRemoteState);
-        return;
-      }
+      if (!supabaseClient || !currentUser || isApplyingRemoteState) return;
 
       const payload = getCloudPayload();
-      console.log("[sync] saving to cloud — presets:", payload.custom_presets.length, "renames:", Object.keys(payload.preset_renames).length);
-
       const { error } = await supabaseClient
         .from("color_harmony_palette_state")
         .upsert({
@@ -1043,10 +1038,7 @@
         }, { onConflict: "user_id" });
 
       if (error) {
-        console.log("[sync] FAILED:", error);
         showToast("云端保存失败");
-      } else {
-        console.log("[sync] OK");
       }
     }
 
@@ -1058,8 +1050,6 @@
     async function loadStateFromCloud() {
       if (!supabaseClient || !currentUser) return;
 
-      console.log("[load] fetching cloud data for user:", currentUser.id);
-
       const { data, error } = await supabaseClient
         .from("color_harmony_palette_state")
         .select("custom_presets,preset_renames")
@@ -1067,19 +1057,14 @@
         .maybeSingle();
 
       if (error) {
-        console.log("[load] FAILED:", error);
         showToast("云端读取失败");
         return;
       }
 
       if (!data) {
-        console.log("[load] no cloud data, syncing local → cloud");
-        showToast("首次同步中…");
         await syncStateToCloud();
         return;
       }
-
-      console.log("[load] got cloud data — presets:", data.custom_presets?.length, "renames:", Object.keys(data.preset_renames || {}).length);
 
       isApplyingRemoteState = true;
       customPresets = normalizeRemotePresets(data.custom_presets);
@@ -1479,7 +1464,6 @@
     authForm.addEventListener("submit", (event) => event.preventDefault());
     signUpButton.addEventListener("click", handleSignUp);
     signInButton.addEventListener("click", handleSignIn);
-    window.handleSignOut = handleSignOut;
     accountTrigger.addEventListener("click", toggleAccountDropdown);
     document.addEventListener("click", (event) => {
       if (!accountDropdown.contains(event.target) && event.target !== accountTrigger && !accountTrigger.contains(event.target)) {
