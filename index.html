@@ -1005,12 +1005,16 @@
 
       if (currentUser) {
         const email = currentUser.email || "当前用户";
-        const shortEmail = email.length > 22 ? email.slice(0, 20) + "…" : email;
         const initial = (email[0] || "U").toUpperCase();
+        // Mask email: abcd@mail.com → a***d@mail.com
+        const atIndex = email.indexOf("@");
+        const maskedEmail = atIndex > 0
+          ? email[0] + "***" + email.slice(atIndex - 1)
+          : email;
         document.getElementById("acAvatar").textContent = initial;
         document.getElementById("acUserAvatar").textContent = initial;
-        document.getElementById("acUserEmail").textContent = email;
-        accountLabel.textContent = shortEmail;
+        document.getElementById("acUserEmail").textContent = maskedEmail;
+        accountLabel.textContent = initial + "***";
         loginPane.style.display = "none";
         userPane.style.display = "";
       } else {
