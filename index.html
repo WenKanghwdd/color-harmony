@@ -1162,7 +1162,8 @@
       accountTrigger.classList.remove("open");
       authPassword.value = "";
       updateAuthUI();
-      await loadStateFromCloud();
+      // onAuthStateChange will trigger loadStateFromCloud
+      if (!currentUser) await loadStateFromCloud();
     }
 
     async function handleSignOut() {
