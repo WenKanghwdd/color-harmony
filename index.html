@@ -1119,13 +1119,11 @@
         return;
       }
 
-      currentUser = data.user || currentUser;
+      // onAuthStateChange will handle setting currentUser and loading cloud data
       accountDropdown.classList.remove("open");
       accountTrigger.classList.remove("open");
       authPassword.value = "";
-      updateAuthUI();
       showToast(data.session ? "注册成功，已登录" : "注册成功，请查收确认邮件");
-      if (data.session) await loadStateFromCloud();
     }
 
     async function handleSignIn() {
@@ -1142,12 +1140,10 @@
         return;
       }
 
-      currentUser = data.user;
+      // onAuthStateChange will handle setting currentUser and loading cloud data
       accountDropdown.classList.remove("open");
       accountTrigger.classList.remove("open");
       authPassword.value = "";
-      updateAuthUI();
-      await loadStateFromCloud();
     }
 
     async function handleSignOut() {
@@ -1525,9 +1521,16 @@
       renderPresets();
     });
     if (supabaseClient) {
-      supabaseClient.auth.onAuthStateChange(async (_event, session) => {
+      supabaseClient.auth.onAuthStateChange(async (event, session) => {
         const nextUser = session?.user || null;
-        // Don't process if we're already in the correct state
+        // Always process sign-in: set user and load cloud data
+        if (event === 'SIGNED_IN' && nextUser) {
+          currentUser = nextUser;
+          updateAuthUI();
+          await loadStateFromCloud();
+          return;
+        }
+        // For other events, skip if state hasn't changed
         if (nextUser?.id === (currentUser && currentUser.id)) return;
         if (!nextUser && !currentUser) return;
         currentUser = nextUser;
