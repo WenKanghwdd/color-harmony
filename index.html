@@ -15,14 +15,9 @@
       --shadow: 0 20px 55px rgba(70, 104, 82, 0.16);
       --radius: 28px;
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
-      margin: 0;
-      min-height: 100vh;
+      margin: 0; min-height: 100vh;
       font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--ink);
       background:
@@ -32,711 +27,155 @@
         linear-gradient(135deg, #f8fae7 0%, #eef8ee 42%, #f6fbff 100%);
       background-attachment: fixed;
     }
-
-    button,
-    input {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-      border: 0;
-    }
-
-    input {
-      width: 100%;
-      border: 0;
-      outline: 0;
-      color: var(--ink);
-    }
-
-    .page {
-      width: min(1160px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 42px 0 52px;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .panel {
-      border: 1px solid var(--line);
-      background: var(--card);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-    }
-
-    .intro {
-      min-height: 340px;
-      border-radius: var(--radius);
-      padding: clamp(26px, 5vw, 54px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      overflow: hidden;
-      position: relative;
-    }
-
+    button, input { font: inherit; }
+    button { cursor: pointer; border: 0; }
+    input { width: 100%; border: 0; outline: 0; color: var(--ink); }
+    .page { width: min(1160px, calc(100% - 32px)); margin: 0 auto; padding: 42px 0 52px; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr); gap: 22px; align-items: stretch; }
+    .panel { border: 1px solid var(--line); background: var(--card); box-shadow: var(--shadow); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); }
+    .intro { min-height: 340px; border-radius: var(--radius); padding: clamp(26px, 5vw, 54px); display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; position: relative; }
     .intro::after {
-      content: "";
-      position: absolute;
-      inset: auto -70px -96px auto;
-      width: 280px;
-      height: 280px;
-      border-radius: 999px;
+      content: ""; position: absolute; inset: auto -70px -96px auto;
+      width: 280px; height: 280px; border-radius: 999px;
       background: conic-gradient(from 120deg, #aad39c, #d0ecf4, #ffd7c5, #cbb7e8, #aad39c);
-      opacity: 0.34;
-      filter: blur(4px);
+      opacity: 0.34; filter: blur(4px);
     }
-
-    .brand {
-      display: inline-flex;
-      width: fit-content;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.58);
-      color: #4f6d56;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .brand-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: #4ea770;
-      box-shadow: 14px 0 0 #7dafdd, 28px 0 0 #f2b8a2;
-    }
-
-    h1 {
-      position: relative;
-      z-index: 1;
-      max-width: 720px;
-      margin: 34px 0 16px;
-      font-size: clamp(38px, 7vw, 76px);
-      line-height: 1.02;
-      letter-spacing: 0;
-    }
-
-    .intro p {
-      position: relative;
-      z-index: 1;
-      max-width: 640px;
-      margin: 0;
-      color: var(--muted);
-      font-size: clamp(16px, 2vw, 19px);
-      line-height: 1.8;
-    }
-
-    .upload-card {
-      border-radius: var(--radius);
-      padding: 20px;
-      display: grid;
-      gap: 16px;
-    }
-
+    .brand { display: inline-flex; width: fit-content; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 999px; background: rgba(255, 255, 255, 0.58); color: #4f6d56; font-size: 14px; font-weight: 700; }
+    .brand-dot { width: 10px; height: 10px; border-radius: 50%; background: #4ea770; box-shadow: 14px 0 0 #7dafdd, 28px 0 0 #f2b8a2; }
+    h1 { position: relative; z-index: 1; max-width: 720px; margin: 34px 0 16px; font-size: clamp(38px, 7vw, 76px); line-height: 1.02; letter-spacing: 0; }
+    .intro p { position: relative; z-index: 1; max-width: 640px; margin: 0; color: var(--muted); font-size: clamp(16px, 2vw, 19px); line-height: 1.8; }
+    .upload-card { border-radius: var(--radius); padding: 20px; display: grid; gap: 16px; }
     .drop-zone {
-      min-height: 272px;
-      border: 1.5px dashed rgba(78, 167, 112, 0.38);
-      border-radius: 24px;
-      background: rgba(255, 255, 255, 0.48);
-      display: grid;
-      place-items: center;
-      padding: 20px;
-      text-align: center;
+      min-height: 272px; border: 1.5px dashed rgba(78, 167, 112, 0.38); border-radius: 24px;
+      background: rgba(255, 255, 255, 0.48); display: grid; place-items: center; padding: 20px; text-align: center;
       transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
     }
-
-    .drop-zone.is-dragging {
-      transform: translateY(-2px);
-      border-color: #4ea770;
-      background: rgba(255, 255, 255, 0.78);
-    }
-
-    .upload-icon {
-      width: 68px;
-      height: 68px;
-      margin: 0 auto 16px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, #aad39c, #d0ecf4);
-      display: grid;
-      place-items: center;
-      color: white;
-      font-size: 34px;
-      font-weight: 800;
-      box-shadow: 0 14px 26px rgba(78, 167, 112, 0.22);
-    }
-
-    .drop-zone strong {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 20px;
-    }
-
-    .drop-zone span {
-      display: block;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .file-input {
-      position: absolute;
-      inline-size: 1px;
-      block-size: 1px;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .upload-button,
-    .copy-all,
-    .save-palette {
-      width: 100%;
-      min-height: 48px;
-      border-radius: 999px;
-      background: #2f7c4d;
-      color: #fff;
-      font-weight: 800;
+    .drop-zone.is-dragging { transform: translateY(-2px); border-color: #4ea770; background: rgba(255, 255, 255, 0.78); }
+    .upload-icon { width: 68px; height: 68px; margin: 0 auto 16px; border-radius: 22px; background: linear-gradient(135deg, #aad39c, #d0ecf4); display: grid; place-items: center; color: white; font-size: 34px; font-weight: 800; box-shadow: 0 14px 26px rgba(78, 167, 112, 0.22); }
+    .drop-zone strong { display: block; margin-bottom: 8px; font-size: 20px; }
+    .drop-zone span { display: block; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .file-input { position: absolute; inline-size: 1px; block-size: 1px; opacity: 0; pointer-events: none; }
+    .upload-button, .copy-all, .save-palette, .export-css, .export-json {
+      width: 100%; min-height: 48px; border-radius: 999px; background: #2f7c4d; color: #fff; font-weight: 800;
       box-shadow: 0 12px 24px rgba(47, 124, 77, 0.22);
       transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
     }
-
-    .upload-button:hover,
-    .copy-all:hover,
-    .save-palette:hover {
-      transform: translateY(-1px);
-      background: #276f40;
-      box-shadow: 0 16px 30px rgba(47, 124, 77, 0.25);
-    }
-
-    .preview {
-      display: none;
-      width: 100%;
-      max-height: 220px;
-      object-fit: cover;
-      border-radius: 22px;
-      box-shadow: 0 12px 30px rgba(59, 79, 63, 0.14);
-    }
-
-    .top-bar {
-      display: flex;
-      justify-content: flex-end;
-      padding: 0 0 0;
-    }
-
-    .account-widget {
-      position: relative;
-      z-index: 100;
-    }
-
+    .upload-button:hover, .copy-all:hover, .save-palette:hover, .export-css:hover, .export-json:hover { transform: translateY(-1px); background: #276f40; box-shadow: 0 16px 30px rgba(47, 124, 77, 0.25); }
+    .preview { display: none; width: 100%; max-height: 220px; object-fit: cover; border-radius: 22px; box-shadow: 0 12px 30px rgba(59, 79, 63, 0.14); }
+    .top-bar { display: flex; justify-content: flex-end; padding: 0 0 0; }
+    .account-widget { position: relative; z-index: 100; }
     .account-trigger {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      min-height: 38px;
-      border-radius: 999px;
-      padding: 0 16px 0 6px;
-      background: rgba(255, 255, 255, 0.72);
+      display: inline-flex; align-items: center; gap: 8px; min-height: 38px; border-radius: 999px;
+      padding: 0 16px 0 6px; background: rgba(255, 255, 255, 0.72);
       box-shadow: 0 2px 8px rgba(70, 104, 82, 0.08), inset 0 0 0 1px rgba(84, 113, 91, 0.1);
-      color: #4f6d56;
-      font-size: 13px;
-      font-weight: 600;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      transition: all 0.2s;
-      cursor: pointer;
+      color: #4f6d56; font-size: 13px; font-weight: 600; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      transition: all 0.2s; cursor: pointer;
     }
-
-    .account-trigger:hover {
-      background: rgba(255, 255, 255, 0.92);
-      box-shadow: 0 4px 14px rgba(70, 104, 82, 0.14), inset 0 0 0 1px rgba(84, 113, 91, 0.16);
-    }
-
-    .ac-avatar {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #aad39c 0%, #4ea770 100%);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .ac-chevron {
-      opacity: 0.5;
-      transition: transform 0.2s;
-    }
-
-    .account-trigger.open .ac-chevron {
-      transform: rotate(180deg);
-    }
-
+    .account-trigger:hover { background: rgba(255, 255, 255, 0.92); box-shadow: 0 4px 14px rgba(70, 104, 82, 0.14), inset 0 0 0 1px rgba(84, 113, 91, 0.16); }
+    .ac-avatar { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #aad39c 0%, #4ea770 100%); color: #fff; font-size: 12px; font-weight: 700; line-height: 1; }
+    .ac-chevron { opacity: 0.5; transition: transform 0.2s; }
+    .account-trigger.open .ac-chevron { transform: rotate(180deg); }
     .account-dropdown {
-      display: none;
-      position: absolute;
-      top: calc(100% + 8px);
-      right: 0;
-      width: 300px;
-      padding: 0;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.96);
-      box-shadow: 0 24px 60px rgba(70, 104, 82, 0.18);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      overflow: hidden;
+      display: none; position: absolute; top: calc(100% + 8px); right: 0; width: 300px; padding: 0;
+      border-radius: 18px; border: 1px solid var(--line); background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 24px 60px rgba(70, 104, 82, 0.18); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); overflow: hidden;
     }
+    .account-dropdown.open { display: block; }
+    .ac-pane { padding: 20px; }
+    .ac-heading { margin: 0 0 4px; font-size: 16px; font-weight: 700; color: var(--ink); }
+    .ac-sub { margin: 0 0 16px; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .auth-form { display: flex; flex-direction: column; gap: 10px; }
+    .auth-field { width: 100%; min-height: 42px; border-radius: 12px; padding: 0 14px; background: rgba(245, 248, 242, 0.8); box-shadow: inset 0 0 0 1px rgba(84, 113, 91, 0.12); font-size: 14px; transition: box-shadow 0.2s; }
+    .auth-field:focus { box-shadow: inset 0 0 0 2px #2f7c4d; }
+    .auth-actions { display: flex; gap: 8px; }
+    .auth-button { flex: 1; min-height: 42px; border-radius: 12px; padding: 0 16px; font-size: 14px; font-weight: 700; white-space: nowrap; transition: all 0.2s; }
+    .auth-button.primary { background: #2f7c4d; color: #fff; box-shadow: 0 2px 8px rgba(47, 124, 77, 0.25); }
+    .auth-button.primary:hover { background: #276f40; }
+    .auth-button.secondary { background: #fff; color: #2f7c4d; box-shadow: inset 0 0 0 1px rgba(47, 124, 77, 0.2); }
+    .auth-button.secondary:hover { background: #f0faf2; }
+    .auth-button:disabled { cursor: not-allowed; opacity: 0.5; }
+    .ac-user-info { display: flex; align-items: center; gap: 12px; }
+    .ac-avatar-lg { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, #aad39c 0%, #4ea770 100%); color: #fff; font-size: 16px; font-weight: 700; flex-shrink: 0; }
+    .ac-user-email { font-size: 14px; font-weight: 600; color: var(--ink); word-break: break-all; }
+    .ac-user-badge { display: inline-block; margin-top: 3px; padding: 2px 8px; border-radius: 999px; background: rgba(47, 124, 77, 0.1); color: #2f7c4d; font-size: 11px; font-weight: 700; }
+    .ac-divider { margin: 16px 0; border: none; border-top: 1px solid rgba(84, 113, 91, 0.1); }
+    .ac-logout { display: inline-flex; align-items: center; gap: 8px; width: 100%; min-height: 40px; border-radius: 12px; padding: 0 14px; background: transparent; color: #c8726b; font-size: 14px; font-weight: 600; transition: all 0.2s; cursor: pointer; border: none; }
+    .ac-logout:hover { background: rgba(200, 114, 107, 0.08); }
+    .section { margin-top: 22px; border-radius: var(--radius); padding: clamp(20px, 4vw, 34px); }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+    .section h2 { margin: 0 0 6px; font-size: clamp(24px, 4vw, 36px); letter-spacing: 0; }
+    .section p { margin: 0; color: var(--muted); line-height: 1.65; }
+    .palette-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .palette-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(128px, 1fr)); gap: 14px; }
+    .color-card { min-width: 0; border-radius: 24px; padding: 10px; background: rgba(255, 255, 255, 0.7); border: 1px solid rgba(255, 255, 255, 0.72); box-shadow: 0 12px 28px rgba(69, 91, 72, 0.1); }
+    .color-swatch { width: 100%; aspect-ratio: 1 / 1.05; border-radius: 19px; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04); position: relative; }
+    .hex-button { width: 100%; margin-top: 10px; min-height: 38px; border-radius: 999px; background: rgba(255, 255, 255, 0.76); color: #34473a; font-size: 13px; font-weight: 850; letter-spacing: 0; box-shadow: inset 0 0 0 1px rgba(84, 113, 91, 0.09); transition: transform 0.16s ease, background 0.16s ease; }
+    .hex-button:hover { transform: translateY(-1px); background: #fff; }
 
-    .account-dropdown.open {
-      display: block;
-    }
+    /* ===== 新增：格式切换器 ===== */
+    .format-switcher { display: flex; gap: 0; border-radius: 999px; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(84, 113, 91, 0.12); margin-bottom: 16px; width: fit-content; }
+    .format-btn { padding: 6px 18px; font-size: 12px; font-weight: 700; background: transparent; color: var(--muted); border: none; cursor: pointer; transition: all 0.16s ease; letter-spacing: 0.3px; }
+    .format-btn.active { background: #2f7c4d; color: #fff; }
+    .format-btn:hover:not(.active) { background: rgba(47, 124, 77, 0.08); color: var(--ink); }
 
-    .ac-pane {
-      padding: 20px;
-    }
+    /* ===== 新增：对比度标签 ===== */
+    .contrast-badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 700; margin-top: 6px; letter-spacing: 0.2px; }
+    .contrast-badge.pass-aaa { background: rgba(47, 124, 77, 0.1); color: #276f40; }
+    .contrast-badge.pass-aa { background: rgba(200, 160, 50, 0.12); color: #9a7b20; }
+    .contrast-badge.fail { background: rgba(200, 114, 107, 0.1); color: #c8726b; }
 
-    .ac-heading {
-      margin: 0 0 4px;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--ink);
-    }
+    /* ===== 新增：渐变预览区 ===== */
+    .gradient-preview { margin-top: 18px; border-radius: 20px; height: 56px; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05), 0 8px 24px rgba(69, 91, 72, 0.08); overflow: hidden; }
+    .gradient-preview-inner { width: 100%; height: 100%; }
+    .gradient-label { text-align: center; margin-top: 6px; font-size: 11px; color: var(--muted); font-weight: 600; }
 
-    .ac-sub {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.5;
-    }
+    /* ===== 新增：导出按钮样式 ===== */
+    .export-css, .export-json { max-width: 120px; padding: 0 16px; background: #ffffff; color: #2f7c4d; box-shadow: inset 0 0 0 1px rgba(47, 124, 77, 0.16), 0 12px 24px rgba(69, 91, 72, 0.08); font-size: 13px; min-height: 40px; }
+    .export-css:hover, .export-json:hover { background: #f7fff7; color: #276f40; }
 
-    .auth-form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    /* ===== 新增：删除按钮 ===== */
+    .delete-preset { width: 28px; height: 28px; border-radius: 999px; background: rgba(255, 255, 255, 0.72); color: #c8726b; font-size: 13px; font-weight: 900; box-shadow: inset 0 0 0 1px rgba(200, 114, 107, 0.15); transition: transform 0.16s ease, background 0.16s ease; }
+    .delete-preset:hover { transform: translateY(-1px); background: #fff; color: #b55d56; }
 
-    .auth-field {
-      width: 100%;
-      min-height: 42px;
-      border-radius: 12px;
-      padding: 0 14px;
-      background: rgba(245, 248, 242, 0.8);
-      box-shadow: inset 0 0 0 1px rgba(84, 113, 91, 0.12);
-      font-size: 14px;
-      transition: box-shadow 0.2s;
-    }
-
-    .auth-field:focus {
-      box-shadow: inset 0 0 0 2px #2f7c4d;
-    }
-
-    .auth-actions {
-      display: flex;
-      gap: 8px;
-    }
-
-    .auth-button {
-      flex: 1;
-      min-height: 42px;
-      border-radius: 12px;
-      padding: 0 16px;
-      font-size: 14px;
-      font-weight: 700;
-      white-space: nowrap;
-      transition: all 0.2s;
-    }
-
-    .auth-button.primary {
-      background: #2f7c4d;
-      color: #fff;
-      box-shadow: 0 2px 8px rgba(47, 124, 77, 0.25);
-    }
-
-    .auth-button.primary:hover {
-      background: #276f40;
-    }
-
-    .auth-button.secondary {
-      background: #fff;
-      color: #2f7c4d;
-      box-shadow: inset 0 0 0 1px rgba(47, 124, 77, 0.2);
-    }
-
-    .auth-button.secondary:hover {
-      background: #f0faf2;
-    }
-
-    .auth-button:disabled {
-      cursor: not-allowed;
-      opacity: 0.5;
-    }
-
-    .ac-user-info {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .ac-avatar-lg {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #aad39c 0%, #4ea770 100%);
-      color: #fff;
-      font-size: 16px;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .ac-user-email {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--ink);
-      word-break: break-all;
-    }
-
-    .ac-user-badge {
-      display: inline-block;
-      margin-top: 3px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: rgba(47, 124, 77, 0.1);
-      color: #2f7c4d;
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    .ac-divider {
-      margin: 16px 0;
-      border: none;
-      border-top: 1px solid rgba(84, 113, 91, 0.1);
-    }
-
-    .ac-logout {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      width: 100%;
-      min-height: 40px;
-      border-radius: 12px;
-      padding: 0 14px;
-      background: transparent;
-      color: #c8726b;
-      font-size: 14px;
-      font-weight: 600;
-      transition: all 0.2s;
-      cursor: pointer;
-      border: none;
-    }
-
-    .ac-logout:hover {
-      background: rgba(200, 114, 107, 0.08);
-    }
-
-    .section {
-      margin-top: 22px;
-      border-radius: var(--radius);
-      padding: clamp(20px, 4vw, 34px);
-    }
-
-    .section-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 22px;
-    }
-
-    .section h2 {
-      margin: 0 0 6px;
-      font-size: clamp(24px, 4vw, 36px);
-      letter-spacing: 0;
-    }
-
-    .section p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    .palette-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .palette-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
-      gap: 14px;
-    }
-
-    .color-card {
-      min-width: 0;
-      border-radius: 24px;
-      padding: 10px;
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.72);
-      box-shadow: 0 12px 28px rgba(69, 91, 72, 0.1);
-    }
-
-    .color-swatch {
-      width: 100%;
-      aspect-ratio: 1 / 1.05;
-      border-radius: 19px;
-      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
-    }
-
-    .hex-button {
-      width: 100%;
-      margin-top: 10px;
-      min-height: 38px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.76);
-      color: #34473a;
-      font-size: 13px;
-      font-weight: 850;
-      letter-spacing: 0;
-      box-shadow: inset 0 0 0 1px rgba(84, 113, 91, 0.09);
-      transition: transform 0.16s ease, background 0.16s ease;
-    }
-
-    .hex-button:hover {
-      transform: translateY(-1px);
-      background: #fff;
-    }
-
-    .preset-search {
-      width: 100%;
-      min-height: 44px;
-      margin-bottom: 16px;
-      border-radius: 999px;
-      padding: 0 20px;
-      background: rgba(255, 255, 255, 0.68);
-      box-shadow: inset 0 0 0 1px rgba(84, 113, 91, 0.1);
-      font-size: 14px;
-      transition: box-shadow 0.18s;
-    }
-
-    .preset-search:focus {
-      box-shadow: inset 0 0 0 2px #2f7c4d;
-    }
-
-    .preset-search::placeholder {
-      color: var(--muted);
-    }
-
-    .presets {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 14px;
-    }
-
-    .preset {
-      min-width: 0;
-      padding: 14px;
-      border-radius: 22px;
-      background: rgba(255, 255, 255, 0.58);
-      border: 1px solid rgba(255, 255, 255, 0.68);
-      box-shadow: 0 10px 24px rgba(69, 91, 72, 0.08);
-      text-align: left;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-    }
-
-    .preset:hover,
-    .preset.is-active {
-      transform: translateY(-2px);
-      background: rgba(255, 255, 255, 0.84);
-      box-shadow: 0 16px 34px rgba(69, 91, 72, 0.14);
-    }
-
-    .preset-select {
-      width: 100%;
-      padding: 0;
-      background: transparent;
-      text-align: left;
-      color: inherit;
-    }
-
-    .preset-name {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 10px;
-      color: #33473a;
-      font-weight: 850;
-    }
-
-    .preset-title {
-      min-width: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .preset-tools {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-    }
-
-    .preset-name small {
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .rename-preset {
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.72);
-      color: #5d6f62;
-      font-size: 13px;
-      font-weight: 900;
-      box-shadow: inset 0 0 0 1px rgba(84, 113, 91, 0.12);
-      transition: transform 0.16s ease, background 0.16s ease;
-    }
-
-    .rename-preset:hover {
-      transform: translateY(-1px);
-      background: #fff;
-    }
-
-    .mini-swatches {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      height: 52px;
-      overflow: hidden;
-      border-radius: 16px;
-      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
-    }
-
-    .copy-all,
-    .save-palette {
-      max-width: 190px;
-      padding: 0 22px;
-      background: #ffffff;
-      color: #2f7c4d;
-      box-shadow: inset 0 0 0 1px rgba(47, 124, 77, 0.16), 0 12px 24px rgba(69, 91, 72, 0.08);
-    }
-
-    .copy-all:hover,
-    .save-palette:hover {
-      background: #f7fff7;
-      color: #276f40;
-    }
-
-    .save-palette {
-      display: none;
-      color: #315bb8;
-      box-shadow: inset 0 0 0 1px rgba(49, 91, 184, 0.15), 0 12px 24px rgba(69, 91, 72, 0.08);
-    }
-
-    .save-palette:hover {
-      background: #f6fbff;
-      color: #315bb8;
-    }
-
-    .save-palette.is-visible {
-      display: block;
-    }
-
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 24px;
-      z-index: 10;
-      transform: translate(-50%, 20px);
-      opacity: 0;
-      pointer-events: none;
-      padding: 12px 18px;
-      border-radius: 999px;
-      background: rgba(36, 51, 42, 0.88);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 800;
-      box-shadow: 0 14px 30px rgba(36, 51, 42, 0.24);
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
+    .preset-search { width: 100%; min-height: 44px; margin-bottom: 16px; border-radius: 999px; padding: 0 20px; background: rgba(255, 255, 255, 0.68); box-shadow: inset 0 0 0 1px rgba(84, 113, 91, 0.1); font-size: 14px; transition: box-shadow 0.18s; }
+    .preset-search:focus { box-shadow: inset 0 0 0 2px #2f7c4d; }
+    .preset-search::placeholder { color: var(--muted); }
+    .presets { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+    .preset { min-width: 0; padding: 14px; border-radius: 22px; background: rgba(255, 255, 255, 0.58); border: 1px solid rgba(255, 255, 255, 0.68); box-shadow: 0 10px 24px rgba(69, 91, 72, 0.08); text-align: left; transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease; }
+    .preset:hover, .preset.is-active { transform: translateY(-2px); background: rgba(255, 255, 255, 0.84); box-shadow: 0 16px 34px rgba(69, 91, 72, 0.14); }
+    .preset-select { width: 100%; padding: 0; background: transparent; text-align: left; color: inherit; }
+    .preset-name { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px; color: #33473a; font-weight: 850; }
+    .preset-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .preset-tools { display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; }
+    .preset-name small { color: var(--muted); font-size: 12px; font-weight: 700; }
+    .rename-preset { width: 28px; height: 28px; border-radius: 999px; background: rgba(255, 255, 255, 0.72); color: #5d6f62; font-size: 13px; font-weight: 900; box-shadow: inset 0 0 0 1px rgba(84, 113, 91, 0.12); transition: transform 0.16s ease, background 0.16s ease; }
+    .rename-preset:hover { transform: translateY(-1px); background: #fff; }
+    .mini-swatches { display: grid; grid-template-columns: repeat(4, 1fr); height: 52px; overflow: hidden; border-radius: 16px; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04); }
+    .copy-all, .save-palette { max-width: 190px; padding: 0 22px; background: #ffffff; color: #2f7c4d; box-shadow: inset 0 0 0 1px rgba(47, 124, 77, 0.16), 0 12px 24px rgba(69, 91, 72, 0.08); }
+    .copy-all:hover, .save-palette:hover { background: #f7fff7; color: #276f40; }
+    .save-palette { display: none; color: #315bb8; box-shadow: inset 0 0 0 1px rgba(49, 91, 184, 0.15), 0 12px 24px rgba(69, 91, 72, 0.08); }
+    .save-palette:hover { background: #f6fbff; color: #315bb8; }
+    .save-palette.is-visible { display: block; }
+    .toast { position: fixed; left: 50%; bottom: 24px; z-index: 10; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; padding: 12px 18px; border-radius: 999px; background: rgba(36, 51, 42, 0.88); color: #fff; font-size: 14px; font-weight: 800; box-shadow: 0 14px 30px rgba(36, 51, 42, 0.24); transition: opacity 0.2s ease, transform 0.2s ease; }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
 
     @media (max-width: 820px) {
-      .page {
-        width: min(100% - 22px, 680px);
-        padding-top: 18px;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-      }
-
-      .intro {
-        min-height: 320px;
-      }
-
-      .section-head {
-        align-items: stretch;
-        flex-direction: column;
-      }
-
-      .palette-actions {
-        flex-direction: column;
-      }
-
-      .account-dropdown {
-        width: calc(100vw - 48px);
-        right: -30px;
-      }
-
-      .copy-all,
-      .save-palette {
-        max-width: none;
-      }
-
-      .palette-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+      .page { width: min(100% - 22px, 680px); padding-top: 18px; }
+      .hero { grid-template-columns: 1fr; }
+      .intro { min-height: 320px; }
+      .section-head { align-items: stretch; flex-direction: column; }
+      .palette-actions { flex-direction: column; }
+      .account-dropdown { width: calc(100vw - 48px); right: -30px; }
+      .copy-all, .save-palette, .export-css, .export-json { max-width: none; }
+      .palette-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
-
     @media (max-width: 420px) {
-      .palette-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .presets {
-        grid-template-columns: 1fr;
-      }
+      .palette-grid { grid-template-columns: 1fr; }
+      .presets { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <!--
-    GitHub Pages 部署步骤：
-    1. 将本文件保存为 index.html，并提交到 GitHub 仓库。
-    2. 进入仓库 Settings > Pages。
-    3. Source 选择 Deploy from a branch，Branch 选择 main / root，保存后等待发布链接生成。
-  -->
   <div class="page">
     <div class="top-bar">
       <div class="account-widget" id="accountWidget">
@@ -761,15 +200,11 @@
           <div class="ac-pane" id="acUserPane" style="display:none">
             <div class="ac-user-info">
               <span class="ac-avatar-lg" id="acUserAvatar">👤</span>
-              <div>
-                <div class="ac-user-email" id="acUserEmail"></div>
-                <div class="ac-user-badge">已同步</div>
-              </div>
+              <div><div class="ac-user-email" id="acUserEmail"></div><div class="ac-user-badge">已同步</div></div>
             </div>
             <hr class="ac-divider" />
             <button class="ac-logout" type="button" id="signOutButton" onclick="handleSignOut()">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="pointer-events:none"><path d="M5 1.75H2.5C2.08579 1.75 1.75 2.08579 1.75 2.5V11.5C1.75 11.9142 2.08579 12.25 2.5 12.25H5M9.5 4.25L12.25 7L9.5 9.75M12.25 7H5.25" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              退出登录
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="pointer-events:none"><path d="M5 1.75H2.5C2.08579 1.75 1.75 2.08579 1.75 2.5V11.5C1.75 11.9142 2.08579 12.25 2.5 12.25H5M9.5 4.25L12.25 7L9.5 9.75M12.25 7H5.25" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>退出登录
             </button>
           </div>
         </div>
@@ -777,22 +212,9 @@
     </div>
     <main>
     <section class="hero" aria-label="图片配色提取">
-      <div class="intro panel">
-        <div>
-          <div class="brand"><span class="brand-dot"></span><span>Color Harmony</span></div>
-          <h1>把图片里的温柔颜色摘出来</h1>
-          <p>上传 jpg、png 或 webp 图片，自动提取 4 到 6 个主色。也可以直接浏览收藏的配色方案，一键复制色号。</p>
-        </div>
-      </div>
-
+      <div class="intro panel"><div><div class="brand"><span class="brand-dot"></span><span>Color Harmony</span></div><h1>把图片里的温柔颜色摘出来</h1><p>上传 jpg、png 或 webp 图片，自动提取 4 到 6 个主色。也可以直接浏览收藏的配色方案，一键复制色号。</p></div></div>
       <div class="upload-card panel">
-        <label class="drop-zone" id="dropZone" for="imageInput">
-          <span>
-            <span class="upload-icon">+</span>
-            <strong>上传图片提取配色</strong>
-            <span>支持 JPG / PNG / WEBP，也可以把图片拖到这里</span>
-          </span>
-        </label>
+        <label class="drop-zone" id="dropZone" for="imageInput"><span><span class="upload-icon">+</span><strong>上传图片提取配色</strong><span>支持 JPG / PNG / WEBP，也可以把图片拖到这里</span></span></label>
         <input class="file-input" id="imageInput" type="file" accept="image/jpeg,image/png,image/webp" />
         <img class="preview" id="preview" alt="上传图片预览" />
         <button class="upload-button" type="button" id="uploadButton">选择图片</button>
@@ -801,49 +223,48 @@
 
     <section class="section panel" aria-label="当前配色">
       <div class="section-head">
-        <div>
-          <h2 id="paletteTitle">多氧森林</h2>
-          <p id="paletteDesc">默认展示示例配色，点击色号即可复制。</p>
-        </div>
+        <div><h2 id="paletteTitle">多氧森林</h2><p id="paletteDesc">默认展示示例配色，点击色号即可复制。</p></div>
         <div class="palette-actions">
           <button class="save-palette" type="button" id="savePalette">加入收藏</button>
           <button class="copy-all" type="button" id="copyAll">复制整组</button>
+          <button class="export-css" type="button" id="exportCSS">导出CSS</button>
+          <button class="export-json" type="button" id="exportJSON">导出JSON</button>
         </div>
       </div>
+      <!-- 新增：格式切换器 -->
+      <div class="format-switcher" id="formatSwitcher">
+        <button class="format-btn active" data-format="hex" type="button">HEX</button>
+        <button class="format-btn" data-format="rgb" type="button">RGB</button>
+        <button class="format-btn" data-format="hsl" type="button">HSL</button>
+      </div>
       <div class="palette-grid" id="paletteGrid"></div>
+      <!-- 新增：渐变预览 -->
+      <div class="gradient-preview" id="gradientPreview"><div class="gradient-preview-inner" id="gradientInner"></div></div>
+      <div class="gradient-label" id="gradientLabel">🎭 渐变预览 — 基于当前配色生成</div>
     </section>
 
     <section class="section panel" aria-label="收藏色号">
-      <div class="section-head">
-        <div>
-          <h2>收藏色号</h2>
-          <p>点击色块查看大图，可搜索色号或名称快速定位。</p>
-        </div>
-      </div>
+      <div class="section-head"><div><h2>收藏色号</h2><p>点击色块查看大图，可搜索色号或名称快速定位。</p></div></div>
       <input class="preset-search" id="presetSearch" type="text" placeholder="搜索色号名称或色值（如 #AAD39C）…" />
       <div class="presets" id="presetList"></div>
     </section>
   </main>
   </div>
-
   <div class="toast" id="toast" role="status" aria-live="polite">已复制</div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     const SUPABASE_URL = "https://rdpthasdzhbyqlvtnrif.supabase.co";
     const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_2m4WAexEastUWAPjWFX0gQ_2nGgSkn9";
-    const isSupabaseConfigured =
-      !SUPABASE_URL.includes("YOUR_PROJECT_REF") &&
-      !SUPABASE_PUBLISHABLE_KEY.includes("YOUR_SUPABASE") &&
-      Boolean(window.supabase);
+    const isSupabaseConfigured = !SUPABASE_URL.includes("YOUR_PROJECT_REF") && !SUPABASE_PUBLISHABLE_KEY.includes("YOUR_SUPABASE") && Boolean(window.supabase);
 
     const defaultPresets = [
-      { id: "default-forest", name: "多氧森林", colors: ["#EDECD6", "#AAD39C", "#4EA770", "#276F40"] },
-      { id: "default-sea-salt", name: "海盐冰淇淋", colors: ["#F8FAE7", "#D0ECF4", "#7DAFDD", "#315BB8"] },
-      { id: "default-peach", name: "蜜桃乌龙", colors: ["#FFF2E8", "#FFD7C5", "#F2A7A0", "#C8726B"] },
-      { id: "default-wisteria", name: "暮色紫藤", colors: ["#F5F0FF", "#D9CCF1", "#A98BCD", "#6D558C"] },
-      { id: "default-mint", name: "薄荷奶绿", colors: ["#F7FBEF", "#CFE8CB", "#8FC9A6", "#4F8C68"] },
-      { id: "default-latte", name: "焦糖拿铁", colors: ["#FFF7EA", "#EAC89D", "#C5905A", "#7A5332"] }
+      { id: "default-forest", name: "多氧森林", colors: ["#EDECD6","#AAD39C","#4EA770","#276F40"] },
+      { id: "default-sea-salt", name: "海盐冰淇淋", colors: ["#F8FAE7","#D0ECF4","#7DAFDD","#315BB8"] },
+      { id: "default-peach", name: "蜜桃乌龙", colors: ["#FFF2E8","#FFD7C5","#F2A7A0","#C8726B"] },
+      { id: "default-wisteria", name: "暮色紫藤", colors: ["#F5F0FF","#D9CCF1","#A98BCD","#6D558C"] },
+      { id: "default-mint", name: "薄荷奶绿", colors: ["#F7FBEF","#CFE8CB","#8FC9A6","#4F8C68"] },
+      { id: "default-latte", name: "焦糖拿铁", colors: ["#FFF7EA","#EAC89D","#C5905A","#7A5332"] }
     ];
 
     const storageKey = "colorHarmonyCustomPresets";
@@ -851,6 +272,7 @@
     let presetRenames = loadPresetRenames();
     let customPresets = loadCustomPresets();
     let presets = buildPresetList();
+    let colorFormat = "hex"; // 'hex' | 'rgb' | 'hsl'
 
     const imageInput = document.getElementById("imageInput");
     const uploadButton = document.getElementById("uploadButton");
@@ -864,6 +286,10 @@
     const paletteDesc = document.getElementById("paletteDesc");
     const copyAll = document.getElementById("copyAll");
     const savePalette = document.getElementById("savePalette");
+    const exportCSS = document.getElementById("exportCSS");
+    const exportJSON = document.getElementById("exportJSON");
+    const formatSwitcher = document.getElementById("formatSwitcher");
+    const gradientInner = document.getElementById("gradientInner");
     const authForm = document.getElementById("authForm");
     const authEmail = document.getElementById("authEmail");
     const authPassword = document.getElementById("authPassword");
@@ -874,668 +300,309 @@
     const accountDropdown = document.getElementById("accountDropdown");
     const accountLabel = document.getElementById("accountLabel");
     const toast = document.getElementById("toast");
-    const supabaseClient = isSupabaseConfigured
-      ? window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
-          auth: {
-            persistSession: true,
-            autoRefreshToken: true,
-            detectSessionInUrl: true
-          }
-        })
-      : null;
+
+    const supabaseClient = isSupabaseConfigured ? window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, { auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true } }) : null;
     let currentUser = null;
     let isApplyingRemoteState = false;
     let currentColors = presets[0].colors;
     let activePreset = presets[0].id;
     let canSaveCurrentPalette = false;
 
-    function createPresetId() {
-      return `custom-${Date.now()}-${Math.random().toString(16).slice(2)}`;
-    }
+    function createPresetId() { return `custom--${Date.now().toString(36)}-${Math.random().toString(36).slice(2,7)}`; }
 
-    function loadPresetRenames() {
-      try {
-        const saved = JSON.parse(localStorage.getItem(renameStorageKey) || "{}");
-        return saved && typeof saved === "object" && !Array.isArray(saved) ? saved : {};
-      } catch (error) {
-        return {};
-      }
-    }
-
+    function loadPresetRenames() { try { const s = JSON.parse(localStorage.getItem(renameStorageKey)||"{}"); return s&&typeof s==="object"&&!Array.isArray(s)?s:{}; } catch(e){return{};} }
     function loadCustomPresets() {
       try {
-        const saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
-        if (!Array.isArray(saved)) return [];
-        return saved
-          .filter((preset) =>
-            preset &&
-            typeof preset.name === "string" &&
-            Array.isArray(preset.colors) &&
-            preset.colors.every((color) => /^#[0-9A-F]{6}$/i.test(color))
-          )
-          .map((preset) => ({
-            id: preset.id || createPresetId(),
-            name: preset.name.trim() || "图片配色",
-            colors: preset.colors.map((color) => color.toUpperCase()),
-            custom: true
-          }));
-      } catch (error) {
-        return [];
-      }
+        const saved = JSON.parse(localStorage.getItem(storageKey)||"[]");
+        if(!Array.isArray(saved)) return [];
+        return saved.filter(p=>p&&typeof p.name==="string"&&Array.isArray(p.colors)&&p.colors.every(c=>/^#[0-9A-F]{6}$/i.test(c)))
+          .map(p=>({id:p.id||createPresetId(),name:(p.name.trim()||"图片配色"),colors:p.colors.map(c=>c.toUpperCase()),custom:true}));
+      } catch(e){return[];}
+    }
+    function buildPresetList(){ return [...defaultPresets.map(p=>({...p,name:presetRenames[p.id]||p.name,custom:false})),...customPresets]; }
+    function saveCustomPresets(){try{localStorage.setItem(storageKey,JSON.stringify(customPresets));}catch(e){showToast("已加入本次页面收藏");} presets=buildPresetList();queueCloudSync();}
+    function savePresetRenames(){try{localStorage.setItem(renameStorageKey,JSON.stringify(presetRenames));}catch(e){showToast("名称已在本次页面更新");} presets=buildPresetList();queueCloudSync();}
+    function normalizeRemoteRenames(v){return v&&typeof v==="object"&&!Array.isArray(v)?v:{};}
+    function normalizeRemotePresets(v){
+      if(!Array.isArray(v)) return [];
+      return v.filter(p=>p&&typeof p.name==="string"&&Array.isArray(p.colors)&&p.colors.every(c=>/^#[0-9A-F]{6}$/i.test(c)))
+        .map(p=>({id:p.id||createPresetId(),name:(p.name.trim()||"图片配色"),colors:p.colors.map(c=>c.toUpperCase()),custom:true}));
+    }
+    function getCloudPayload(){return{custom_presets:customPresets.map(p=>({id:p.id,name:p.name,colors:p.colors})),preset_renames:presetRenames};}
+
+    function updateAuthUI(){
+      const isReady=Boolean(supabaseClient),loginPane=document.getElementById("acLoginPane"),userPane=document.getElementById("acUserPane");
+      authEmail.disabled=!isReady||Boolean(currentUser);authPassword.disabled=!isReady||Boolean(currentUser);signInButton.disabled=!isReady||Boolean(currentUser);signUpButton.disabled=!isReady||Boolean(currentUser);
+      if(!isReady){accountLabel.textContent="连接中…";return;}
+      if(currentUser){
+        const email=currentUser.email||"当前用户",initial=(email[0]||"U").toUpperCase(),atIndex=email.indexOf("@"),
+          maskedEmail=atIndex>0?email[0]+"***"+email.slice(atIndex-1):email;
+        document.getElementById("acAvatar").textContent=initial;document.getElementById("acUserAvatar").textContent=initial;
+        document.getElementById("acUserEmail").textContent=maskedEmail;accountLabel.textContent=initial+"***";
+        loginPane.style.display="none";userPane.style.display="";
+      } else{document.getElementById("acAvatar").textContent="👤";accountLabel.textContent="登录";loginPane.style.display="";userPane.style.display="none";}
     }
 
-    function buildPresetList() {
-      return [
-        ...defaultPresets.map((preset) => ({
-          ...preset,
-          name: presetRenames[preset.id] || preset.name,
-          custom: false
-        })),
-        ...customPresets
-      ];
+    async function syncStateToCloud(){
+      if(!supabaseClient||!currentUser||isApplyingRemoteState)return;
+      const payload=getCloudPayload();
+      const{error}=await supabaseClient.from("color_harmony_palette_state").upsert({user_id:currentUser.id,...payload,updated_at:new Date().toISOString()},{onConflict:"user_id"});
+      if(error)showToast("云端保存失败");
+    }
+    function queueCloudSync(){window.clearTimeout(queueCloudSync.timer);queueCloudSync.timer=window.setTimeout(syncStateToCloud,320);}
+
+    async function loadStateFromCloud(){
+      if(!supabaseClient||!currentUser)return;
+      const{data,error}=await supabaseClient.from("color_harmony_palette_state").select("custom_presets,preset_renames").eq("user_id",currentUser.id).maybeSingle();
+      if(error){showToast("云端读取失败");return;}
+      if(!data){await syncStateToCloud();return;}
+      isApplyingRemoteState=true;customPresets=normalizeRemotePresets(data.custom_presets);presetRenames=normalizeRemoteRenames(data.preset_renames);
+      try{localStorage.setItem(storageKey,JSON.stringify(customPresets));localStorage.setItem(renameStorageKey,JSON.stringify(presetRenames));}catch(e){}
+      presets=buildPresetList();activePreset=presets[0].id;
+      renderPalette(presets[0].colors,presets[0].name,"已从账号读取配色记录，点击色号即可复制。");renderPresets();isApplyingRemoteState=false;showToast("配色记录已同步");
     }
 
-    function saveCustomPresets() {
-      try {
-        localStorage.setItem(storageKey, JSON.stringify(customPresets));
-      } catch (error) {
-        showToast("已加入本次页面收藏");
-      }
-      presets = buildPresetList();
-      queueCloudSync();
+    async function refreshSession(){
+      if(!supabaseClient){updateAuthUI();return;}
+      const{data}=await supabaseClient.auth.getSession();currentUser=data.session?.user||null;updateAuthUI();
+      if(currentUser)await loadStateFromCloud();
     }
 
-    function savePresetRenames() {
-      try {
-        localStorage.setItem(renameStorageKey, JSON.stringify(presetRenames));
-      } catch (error) {
-        showToast("名称已在本次页面更新");
-      }
-      presets = buildPresetList();
-      queueCloudSync();
+    async function handleSignUp(){
+      const email=authEmail.value.trim(),password=authPassword.value;
+      if(!email||password.length<6){showToast("请输入邮箱和至少 6 位密码");return;}
+      const{data,error}=await supabaseClient.auth.signUp({email,password,options:{emailRedirectTo:window.location.href.split("#")[0]}});
+      if(error){showToast(error.message);return;}
+      accountDropdown.classList.remove("open");accountTrigger.classList.remove("open");authPassword.value="";
+      showToast(data.session?"注册成功，已登录":"注册成功，请查收确认邮件");
+    }
+    async function handleSignIn(){
+      const email=authEmail.value.trim(),password=authPassword.value;
+      if(!email||!password){showToast("请输入邮箱和密码");return;}
+      const{data,error}=await supabaseClient.auth.signInWithPassword({email,password});
+      if(error){showToast(error.message);return;}
+      accountDropdown.classList.remove("open");accountTrigger.classList.remove("open");authPassword.value="";
     }
 
-    function normalizeRemoteRenames(value) {
-      return value && typeof value === "object" && !Array.isArray(value) ? value : {};
+    async function handleSignOut(){
+      var btn=document.getElementById("signOutButton");if(btn){btn.textContent="退出中…";btn.disabled=true;}
+      currentUser=null;customPresets=[];presetRenames={};presets=buildPresetList();
+      try{localStorage.removeItem(storageKey);localStorage.removeItem(renameStorageKey);
+        for(var i=localStorage.length-1;i>=0;i--){var k=localStorage.key(i);if(k&&(k.includes("supabase")||k.includes("sb-")))localStorage.removeItem(k);}
+      } catch(_){}
+      if(supabaseClient){try{await Promise.race([supabaseClient.auth.signOut(),new Promise(function(_,rej){return setTimeout(function(){return rej(new Error("timeout"));},5000)})]);}catch(_){}}
+      accountDropdown.classList.remove("open");accountTrigger.classList.remove("open");updateAuthUI();renderPresets();showToast("已退出登录");
+      if(btn){btn.textContent="退出登录";btn.disabled=false;}
     }
 
-    function normalizeRemotePresets(value) {
-      if (!Array.isArray(value)) return [];
-
-      return value
-        .filter((preset) =>
-          preset &&
-          typeof preset.name === "string" &&
-          Array.isArray(preset.colors) &&
-          preset.colors.every((color) => /^#[0-9A-F]{6}$/i.test(color))
-        )
-        .map((preset) => ({
-          id: preset.id || createPresetId(),
-          name: preset.name.trim() || "图片配色",
-          colors: preset.colors.map((color) => color.toUpperCase()),
-          custom: true
-        }));
+    function toggleAccountDropdown(){
+      const isOpen=accountDropdown.classList.toggle("open");accountTrigger.classList.toggle("open",isOpen);
+      if(isOpen&&!currentUser)authEmail.focus();
     }
 
-    function getCloudPayload() {
-      return {
-        custom_presets: customPresets.map((preset) => ({
-          id: preset.id,
-          name: preset.name,
-          colors: preset.colors
-        })),
-        preset_renames: presetRenames
-      };
+    function rgbToHex(r,g,b){return "#"+[r,g,b].map(v=>v.toString(16).padStart(2,"0")).join("").toUpperCase();}
+
+    // ===== 新增：颜色转换函数 =====
+    function hexToRgb(hex){const h=hex.replace("#",""),num=parseInt(h,16);return{r:(num>>16)&255,g:(num>>8)&255,b:num&255};}
+    function rgbToStr(rgb){return `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;}
+    function rgbToHsl(r,g,b){
+      r/=255;g/=255;b/=255;const max=Math.max(r,g,b),min=Math.min(r,g,b);let h,s,l=(max+min)/2;
+      if(max===min){h=s=0;}else{
+        const d=max-min;s=l>0.5?d/(2-max-min):d/(max+min);
+        switch(max){case r:h=((g-b)/d+(g< b?6:0))/6;break;case g:h=((b-r)/d+2)/6;break;case b:h=((r-g)/d+4)/6;break;}
+      }
+      return{h:Math.round(h*360),s:Math.round(s*100),l:Math.round(l*100)};
+    }
+    function hslToStr(hsl){return `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;}
+    function formatColor(hex){
+      if(colorFormat==="hex")return hex;
+      const rgb=hexToRgb(hex);
+      if(colorFormat==="rgb")return rgbToStr(rgb);
+      const hsl=rgbToHsl(rgb.r,rgb.g,rgb.b);return hslToStr(hsl);
     }
 
-    function updateAuthUI() {
-      const isReady = Boolean(supabaseClient);
-      const loginPane = document.getElementById("acLoginPane");
-      const userPane = document.getElementById("acUserPane");
-
-      authEmail.disabled = !isReady || Boolean(currentUser);
-      authPassword.disabled = !isReady || Boolean(currentUser);
-      signInButton.disabled = !isReady || Boolean(currentUser);
-      signUpButton.disabled = !isReady || Boolean(currentUser);
-
-      if (!isReady) {
-        accountLabel.textContent = "连接中…";
-        return;
-      }
-
-      if (currentUser) {
-        const email = currentUser.email || "当前用户";
-        const initial = (email[0] || "U").toUpperCase();
-        // Mask email: abcd@mail.com → a***d@mail.com
-        const atIndex = email.indexOf("@");
-        const maskedEmail = atIndex > 0
-          ? email[0] + "***" + email.slice(atIndex - 1)
-          : email;
-        document.getElementById("acAvatar").textContent = initial;
-        document.getElementById("acUserAvatar").textContent = initial;
-        document.getElementById("acUserEmail").textContent = maskedEmail;
-        accountLabel.textContent = initial + "***";
-        loginPane.style.display = "none";
-        userPane.style.display = "";
-      } else {
-        document.getElementById("acAvatar").textContent = "👤";
-        accountLabel.textContent = "登录";
-        loginPane.style.display = "";
-        userPane.style.display = "none";
-      }
+    // ===== 新增：WCAG 对比度计算 =====
+    function getLuminance(r,g,b){
+      const [rs,gs,bs]=[r,g,b].map(c=>{c=c/255;return c<=0.03928?c/12.92:Math.pow((c+0.055)/1.055,2.4);});
+      return 0.2126*rs+0.7152*gs+0.0722*bs;
+    }
+    function getContrastRatio(hex1,hex2){
+      const r1=hexToRgb(hex1),r2=hexToRgb(hex2);
+      const l1=getLuminance(r1.r,r1.g,r1.b),l2=getLuminance(r2.r,r2.g,r2.b);
+      return(Math.max(l1,l2)+0.05)/(Math.min(l1,l2)+0.05);
+    }
+    function getContrastLevel(ratio){
+      if(ratio>=7)return{level:"AAA",cls:"pass-aaa",label:"AAA ✓"};
+      if(ratio>=4.5)return{level:"AA",cls:"pass-aa",label:"AA ✓"};
+      return{level:"Fail",cls:"fail",label:"✗ 低"};
     }
 
-    async function syncStateToCloud() {
-      if (!supabaseClient || !currentUser || isApplyingRemoteState) return;
-
-      const payload = getCloudPayload();
-      const { error } = await supabaseClient
-        .from("color_harmony_palette_state")
-        .upsert({
-          user_id: currentUser.id,
-          ...payload,
-          updated_at: new Date().toISOString()
-        }, { onConflict: "user_id" });
-
-      if (error) {
-        showToast("云端保存失败");
-      }
+    // ===== 新增：渐变生成 =====
+    function renderGradient(colors){
+      if(!colors||colors.length<2){gradientInner.style.background="#eee";return;}
+      gradientInner.style.background=`linear-gradient(135deg, ${colors.join(", ")})`;
     }
 
-    function queueCloudSync() {
-      window.clearTimeout(queueCloudSync.timer);
-      queueCloudSync.timer = window.setTimeout(syncStateToCloud, 320);
+    // ===== 新增：导出 CSS 变量 =====
+    function generateCSSVariables(colors,title){
+      const safeName=title.replace(/[^a-zA-Z\u4e00-\u9fa5]/g,"-").toLowerCase();
+      const lines=[`/* ${title} — Color Harmony Export */`,":root {"];
+      colors.forEach((hex,i)=>lines.push(`  --${safeName}-${i+1}: ${hex};`));
+      lines.push("}");return lines.join("\n");
     }
 
-    async function loadStateFromCloud() {
-      if (!supabaseClient || !currentUser) return;
-
-      const { data, error } = await supabaseClient
-        .from("color_harmony_palette_state")
-        .select("custom_presets,preset_renames")
-        .eq("user_id", currentUser.id)
-        .maybeSingle();
-
-      if (error) {
-        showToast("云端读取失败");
-        return;
-      }
-
-      if (!data) {
-        await syncStateToCloud();
-        return;
-      }
-
-      isApplyingRemoteState = true;
-      customPresets = normalizeRemotePresets(data.custom_presets);
-      presetRenames = normalizeRemoteRenames(data.preset_renames);
-      try {
-        localStorage.setItem(storageKey, JSON.stringify(customPresets));
-        localStorage.setItem(renameStorageKey, JSON.stringify(presetRenames));
-      } catch (error) {
-        /* Local cache is optional when Supabase sync is available. */
-      }
-      presets = buildPresetList();
-      activePreset = presets[0].id;
-      renderPalette(presets[0].colors, presets[0].name, "已从账号读取配色记录，点击色号即可复制。");
-      renderPresets();
-      isApplyingRemoteState = false;
-      showToast("配色记录已同步");
+    // ===== 新增：导出 JSON =====
+    function exportAsJSON(colors,title){
+      const data={name:title,exportedAt:new Date().toISOString(),source:"Color Harmony",
+        colors:colors.map(hex=>{const rgb=hexToRgb(hex),hsl=rgbToHsl(rgb.r,rgb.g,rgb.b);return{hex,rgb:rgbToStr(rgb),hsl:hslToStr(hsl)};})};
+      const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob);
+      const a=document.createElement("a");a.href=url;a.download=`${title.replace(/\s+/g,"_")}_colors.json`;a.click();URL.revokeObjectURL(url);showToast("JSON 已下载");
     }
 
-    async function refreshSession() {
-      if (!supabaseClient) {
-        updateAuthUI();
-        return;
-      }
+    function showToast(message){toast.textContent=message;toast.classList.add("show");window.clearTimeout(showToast.timer);showToast.timer=window.setTimeout(()=>toast.classList.remove("show"),1500);}
 
-      const { data } = await supabaseClient.auth.getSession();
-      currentUser = data.session?.user || null;
-      updateAuthUI();
-
-      if (currentUser) {
-        await loadStateFromCloud();
-      }
+    async function copyText(text,label="已复制"){
+      try{await navigator.clipboard.writeText(text);}catch(e){
+        const ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";
+        document.body.appendChild(ta);ta.select();document.execCommand("copy");ta.remove();
+      }showToast(label);
     }
 
-    async function handleSignUp() {
-      const email = authEmail.value.trim();
-      const password = authPassword.value;
-      if (!email || password.length < 6) {
-        showToast("请输入邮箱和至少 6 位密码");
-        return;
-      }
+    function samePalette(a,b){return a.length===b.length&&a.every((c,i)=>c.toUpperCase()===b[i].toUpperCase());}
+    function findPresetByColors(colors){return presets.find(p=>samePalette(p.colors,colors));}
 
-      const { data, error } = await supabaseClient.auth.signUp({
-        email,
-        password,
-        options: {
-          emailRedirectTo: window.location.href.split("#")[0]
-        }
+    // ===== 新增：删除配色方案 =====
+    function deletePreset(preset){
+      if(!preset.custom){showToast("默认配色不可删除");return;}
+      if(!confirm(`确定要删除「${preset.name}」吗？`))return;
+      customPresets=customPresets.filter(item=>item.id!==preset.id);saveCustomPresets();
+      if(activePreset===preset.id){activePreset=presets[0]?.id||"";if(presets[0])renderPalette(presets[0].colors,presets[0].name,"默认展示示例配色，点击色号即可复制。");}
+      renderPresets();showToast("已删除");
+    }
+
+    function renamePreset(preset){
+      const nextName=window.prompt("请输入新的配色名称",preset.name);
+      if(nextName===null)return;const trimmedName=nextName.trim();
+      if(!trimmedName){showToast("名称不能为空");return;}
+      if(preset.custom){const target=customPresets.find(item=>item.id===preset.id);if(target){target.name=trimmedName;saveCustomPresets();}}
+      else{const dp=defaultPresets.find(item=>item.id===preset.id);if(dp&&trimmedName===dp.name)delete presetRenames[preset.id];else presetRenames[preset.id]=trimmedName;savePresetRenames();}
+      activePreset=preset.id;renderPalette(preset.colors,trimmedName,"来自收藏色号，可点击色号或复制整组。");renderPresets();showToast("名称已更新");
+    }
+
+    function renderPalette(colors,title,description,options={}){
+      currentColors=colors;canSaveCurrentPalette=Boolean(options.canSave);
+      paletteTitle.textContent=title;paletteDesc.textContent=description;
+      savePalette.classList.toggle("is-visible",canSaveCurrentPalette);paletteGrid.innerHTML="";
+      const baseColor=colors[0]||"#FFFFFF";
+      colors.forEach((hex)=>{
+        const card=document.createElement("article");card.className="color-card";
+        const swatch=document.createElement("div");swatch.className="color-swatch";swatch.style.background=hex;
+        const btn=document.createElement("button");btn.className="hex-button";btn.type="button";btn.textContent=formatColor(hex);
+        btn.setAttribute("aria-label",`复制色号 ${hex}`);
+        btn.addEventListener("click",()=>copyText(formatColor(hex),`已复制 ${formatColor(hex)}`));
+        // 对比度标签
+        const ratio=getContrastRatio(hex,"#24332a"),ci=getContrastLevel(ratio);
+        const badge=document.createElement("span");badge.className=`contrast-badge ${ci.cls}`;
+        badge.title=`对比度 ${ratio.toFixed(1)}:1 (${ci.level})`;badge.textContent=`${ratio.toFixed(1)}:1 ${ci.label}`;
+        card.append(swatch,btn,badge);paletteGrid.appendChild(card);
       });
-
-      if (error) {
-        showToast(error.message);
-        return;
-      }
-
-      // onAuthStateChange will handle setting currentUser and loading cloud data
-      accountDropdown.classList.remove("open");
-      accountTrigger.classList.remove("open");
-      authPassword.value = "";
-      showToast(data.session ? "注册成功，已登录" : "注册成功，请查收确认邮件");
+      renderGradient(colors);
     }
 
-    async function handleSignIn() {
-      const email = authEmail.value.trim();
-      const password = authPassword.value;
-      if (!email || !password) {
-        showToast("请输入邮箱和密码");
-        return;
-      }
-
-      const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
-      if (error) {
-        showToast(error.message);
-        return;
-      }
-
-      // onAuthStateChange will handle setting currentUser and loading cloud data
-      accountDropdown.classList.remove("open");
-      accountTrigger.classList.remove("open");
-      authPassword.value = "";
-    }
-
-    async function handleSignOut() {
-      var btn = document.getElementById("signOutButton");
-      if (btn) { btn.textContent = "退出中…"; btn.disabled = true; }
-
-      // Always clear local state first
-      currentUser = null;
-      customPresets = [];
-      presetRenames = {};
-      presets = buildPresetList();
-      try {
-        localStorage.removeItem(storageKey);
-        localStorage.removeItem(renameStorageKey);
-        for (var i = localStorage.length - 1; i >= 0; i--) {
-          var key = localStorage.key(i);
-          if (key && (key.includes("supabase") || key.includes("sb-"))) {
-            localStorage.removeItem(key);
-          }
-        }
-      } catch (_) {}
-
-      // Try server signOut with timeout, but don't block on it
-      if (supabaseClient) {
-        try {
-          await Promise.race([
-            supabaseClient.auth.signOut(),
-            new Promise(function (_, rej) { return setTimeout(function () { return rej(new Error("timeout")); }, 5000); })
-          ]);
-        } catch (_) {
-          // Server unreachable — already cleared local state
-        }
-      }
-
-      accountDropdown.classList.remove("open");
-      accountTrigger.classList.remove("open");
-      updateAuthUI();
-      renderPresets();
-      showToast("已退出登录");
-
-      if (btn) { btn.textContent = "退出登录"; btn.disabled = false; }
-    }
-
-    function toggleAccountDropdown() {
-      const isOpen = accountDropdown.classList.toggle("open");
-      accountTrigger.classList.toggle("open", isOpen);
-      if (isOpen && !currentUser) {
-        authEmail.focus();
-      }
-    }
-
-    function rgbToHex(r, g, b) {
-      return "#" + [r, g, b].map((value) => value.toString(16).padStart(2, "0")).join("").toUpperCase();
-    }
-
-    function showToast(message) {
-      toast.textContent = message;
-      toast.classList.add("show");
-      window.clearTimeout(showToast.timer);
-      showToast.timer = window.setTimeout(() => toast.classList.remove("show"), 1500);
-    }
-
-    async function copyText(text, label = "已复制") {
-      try {
-        await navigator.clipboard.writeText(text);
-      } catch (error) {
-        const textarea = document.createElement("textarea");
-        textarea.value = text;
-        textarea.style.position = "fixed";
-        textarea.style.opacity = "0";
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand("copy");
-        textarea.remove();
-      }
-      showToast(label);
-    }
-
-    function samePalette(a, b) {
-      return a.length === b.length && a.every((color, index) => color.toUpperCase() === b[index].toUpperCase());
-    }
-
-    function findPresetByColors(colors) {
-      return presets.find((preset) => samePalette(preset.colors, colors));
-    }
-
-    function renamePreset(preset) {
-      const nextName = window.prompt("请输入新的配色名称", preset.name);
-      if (nextName === null) return;
-
-      const trimmedName = nextName.trim();
-      if (!trimmedName) {
-        showToast("名称不能为空");
-        return;
-      }
-
-      if (preset.custom) {
-        const target = customPresets.find((item) => item.id === preset.id);
-        if (target) {
-          target.name = trimmedName;
-          saveCustomPresets();
-        }
-      } else {
-        const defaultPreset = defaultPresets.find((item) => item.id === preset.id);
-        if (defaultPreset && trimmedName === defaultPreset.name) {
-          delete presetRenames[preset.id];
-        } else {
-          presetRenames[preset.id] = trimmedName;
-        }
-        savePresetRenames();
-      }
-
-      activePreset = preset.id;
-      renderPalette(preset.colors, trimmedName, "来自收藏色号，可点击色号或复制整组。");
-      renderPresets();
-      showToast("名称已更新");
-    }
-
-    function renderPalette(colors, title, description, options = {}) {
-      currentColors = colors;
-      canSaveCurrentPalette = Boolean(options.canSave);
-      paletteTitle.textContent = title;
-      paletteDesc.textContent = description;
-      savePalette.classList.toggle("is-visible", canSaveCurrentPalette);
-      paletteGrid.innerHTML = "";
-
-      colors.forEach((hex) => {
-        const card = document.createElement("article");
-        card.className = "color-card";
-
-        const swatch = document.createElement("div");
-        swatch.className = "color-swatch";
-        swatch.style.background = hex;
-
-        const button = document.createElement("button");
-        button.className = "hex-button";
-        button.type = "button";
-        button.textContent = hex;
-        button.setAttribute("aria-label", `复制色号 ${hex}`);
-        button.addEventListener("click", () => copyText(hex, `已复制 ${hex}`));
-
-        card.append(swatch, button);
-        paletteGrid.appendChild(card);
+    function renderPresets(){
+      presetList.innerHTML="";
+      const filter=presetFilter.trim().toLowerCase();
+      const filtered=filter?presets.filter(p=>p.name.toLowerCase().includes(filter)||p.colors.some(h=>h.toLowerCase().includes(filter))):presets;
+      if(filter&&filtered.length===0){presetList.innerHTML='<p style="grid-column:1/-1;text-align:center;color:var(--muted);padding:24px;">没有匹配的色号</p>';return;}
+      filtered.forEach((preset)=>{
+        const card=document.createElement("article");card.className=`preset${activePreset===preset.id?" is-active":""}`;
+        const name=document.createElement("div");name.className="preset-name";
+        const title=document.createElement("span");title.className="preset-title";title.textContent=preset.name;
+        const tools=document.createElement("span");tools.className="preset-tools";
+        const count=document.createElement("small");count.textContent=`${preset.colors.length} colors`;
+        const renameBtn=document.createElement("button");renameBtn.className="rename-preset";renameBtn.type="button";renameBtn.textContent="改";renameBtn.title="重命名";renameBtn.setAttribute("aria-label","重命名");renameBtn.addEventListener("click",()=>renamePreset(preset));
+        if(preset.custom){
+          const delBtn=document.createElement("button");delBtn.className="delete-preset";delBtn.type="button";delBtn.textContent="✕";delBtn.title="删除此配色";delBtn.setAttribute("aria-label","删除配色");delBtn.addEventListener("click",()=>deletePreset(preset));
+          tools.append(count,renameBtn,delBtn);
+        } else{tools.append(count,renameBtn);}
+        name.append(title,tools);
+        const swatches=document.createElement("div");swatches.className="mini-swatches";
+        preset.colors.forEach(h=>{const s=document.createElement("span");s.style.background=h;swatches.appendChild(s);});
+        const selBtn=document.createElement("button");selBtn.className="preset-select";selBtn.type="button";selBtn.setAttribute("aria-label","查看配色");selBtn.append(name,swatches);
+        selBtn.addEventListener("click",()=>{activePreset=preset.id;renderPalette(preset.colors,preset.name,"来自收藏色号，可点击色号或复制整组。");renderPresets();});
+        card.appendChild(selBtn);presetList.appendChild(card);
       });
     }
 
-    function renderPresets() {
-      presetList.innerHTML = "";
-
-      const filter = presetFilter.trim().toLowerCase();
-      const filtered = filter
-        ? presets.filter((preset) =>
-            preset.name.toLowerCase().includes(filter) ||
-            preset.colors.some((hex) => hex.toLowerCase().includes(filter))
-          )
-        : presets;
-
-      if (filter && filtered.length === 0) {
-        presetList.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--muted);padding:24px;">没有匹配的色号</p>';
-        return;
+    function fallbackExtractColors(image,colorCount=6){
+      const canvas=document.createElement("canvas"),ctx=canvas.getContext("2d",{willReadFrequently:true});
+      const maxSize=180,scale=Math.min(maxSize/image.naturalWidth,maxSize/image.naturalHeight,1);
+      canvas.width=Math.max(1,Math.round(image.naturalWidth*scale));canvas.height=Math.max(1,Math.round(image.naturalHeight*scale));
+      ctx.drawImage(image,0,0,canvas.width,canvas.height);
+      const data=ctx.getImageData(0,0,canvas.width,canvas.height).data,buckets=new Map();
+      for(let i=0;i<data.length;i+=16){const a=data[i+3];if(a<128)continue;const r=data[i],g=data[i+1],b=data[i+2],sat=Math.max(r,g,b)-Math.min(r,g,b);if(r>245&&g>245&&b>245)continue;if(r<12&&g<12&&b<12)continue;
+        const key=`${Math.floor(r/8)},${Math.floor(g/8)},${Math.floor(b/8)}`;
+        const bucket=buckets.get(key)||{r:0,g:0,b:0,count:0,saturation:0};
+        bucket.r+=r;bucket.g+=g;bucket.b+=b;bucket.count++;bucket.saturation+=sat;buckets.set(key,bucket);
       }
-
-      filtered.forEach((preset) => {
-        const card = document.createElement("article");
-        card.className = `preset${preset.id === activePreset ? " is-active" : ""}`;
-
-        const name = document.createElement("div");
-        name.className = "preset-name";
-
-        const title = document.createElement("span");
-        title.className = "preset-title";
-        title.textContent = preset.name;
-
-        const tools = document.createElement("span");
-        tools.className = "preset-tools";
-
-        const count = document.createElement("small");
-        count.textContent = `${preset.colors.length} colors`;
-
-        const renameButton = document.createElement("button");
-        renameButton.className = "rename-preset";
-        renameButton.type = "button";
-        renameButton.textContent = "改";
-        renameButton.title = "重命名";
-        renameButton.setAttribute("aria-label", `重命名${preset.name}`);
-        renameButton.addEventListener("click", () => renamePreset(preset));
-
-        tools.append(count, renameButton);
-        name.append(title, tools);
-
-        const swatches = document.createElement("div");
-        swatches.className = "mini-swatches";
-        preset.colors.forEach((hex) => {
-          const swatch = document.createElement("span");
-          swatch.style.background = hex;
-          swatches.appendChild(swatch);
-        });
-
-        const selectButton = document.createElement("button");
-        selectButton.className = "preset-select";
-        selectButton.type = "button";
-        selectButton.setAttribute("aria-label", `查看${preset.name}配色`);
-        selectButton.append(name, swatches);
-        selectButton.addEventListener("click", () => {
-          activePreset = preset.id;
-          renderPalette(preset.colors, preset.name, "来自收藏色号，可点击色号或复制整组。");
-          renderPresets();
-        });
-
-        card.appendChild(selectButton);
-        presetList.appendChild(card);
-      });
+      return [...buckets.values()].sort((a,b)=>(b.count*1.2+b.saturation/b.count)-(a.count*1.2+a.saturation/a.count)).slice(0,colorCount)
+        .map(b=>rgbToHex(Math.round(b.r/b.count),Math.round(b.g/b.count),Math.round(b.b/b.count)));
     }
 
-    function fallbackExtractColors(image, colorCount = 6) {
-      const canvas = document.createElement("canvas");
-      const context = canvas.getContext("2d", { willReadFrequently: true });
-      const maxSize = 180;
-      const scale = Math.min(maxSize / image.naturalWidth, maxSize / image.naturalHeight, 1);
-      canvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
-      canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
-      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+    function uniqueColors(colors){return[...new Set(colors.map(c=>c.toUpperCase()))].slice(0,6);}
 
-      const data = context.getImageData(0, 0, canvas.width, canvas.height).data;
-      const buckets = new Map();
-
-      for (let i = 0; i < data.length; i += 16) {
-        const alpha = data[i + 3];
-        if (alpha < 128) continue;
-
-        const r = data[i];
-        const g = data[i + 1];
-        const b = data[i + 2];
-        const saturation = Math.max(r, g, b) - Math.min(r, g, b);
-        if (r > 245 && g > 245 && b > 245) continue;
-        if (r < 12 && g < 12 && b < 12) continue;
-
-        const key = `${Math.round(r / 24) * 24},${Math.round(g / 24) * 24},${Math.round(b / 24) * 24}`;
-        const bucket = buckets.get(key) || { r: 0, g: 0, b: 0, count: 0, saturation: 0 };
-        bucket.r += r;
-        bucket.g += g;
-        bucket.b += b;
-        bucket.count += 1;
-        bucket.saturation += saturation;
-        buckets.set(key, bucket);
-      }
-
-      return [...buckets.values()]
-        .sort((a, b) => (b.count * 1.2 + b.saturation / b.count) - (a.count * 1.2 + a.saturation / a.count))
-        .slice(0, colorCount)
-        .map((bucket) => rgbToHex(
-          Math.round(bucket.r / bucket.count),
-          Math.round(bucket.g / bucket.count),
-          Math.round(bucket.b / bucket.count)
-        ));
+    function analyzeImage(file){
+      if(!file||!/^image\/(jpeg|png|webp)$/.test(file.type)){showToast("请上传 jpg、png 或 webp 图片");return;}
+      const reader=new FileReader();reader.onload=()=>{preview.src=reader.result;preview.style.display="block";};reader.readAsDataURL(file);
+      const objUrl=URL.createObjectURL(file),img=new Image();
+      img.onload=()=>{
+        let colors=[];
+        try{if(window.ColorThief){const t=new ColorThief();colors=t.getPalette(img,6).map(([r,g,b])=>rgbToHex(r,g,b));}}catch(e){colors=[];}
+        if(colors.length<4)colors=fallbackExtractColors(img,6);
+        colors=uniqueColors(colors);
+        if(colors.length<4){colors=defaultPresets[0].colors;showToast("图片颜色较少，已显示示例配色");}
+        activePreset="";renderPalette(colors,"图片主色系","从上传图片中提取的主要颜色，可加入收藏并在下方复用。",{canSave:true});renderPresets();URL.revokeObjectURL(objUrl);
+      };
+      img.onerror=()=>{URL.revokeObjectURL(objUrl);showToast("图片读取失败");};img.src=objUrl;
     }
 
-    function uniqueColors(colors) {
-      return [...new Set(colors.map((color) => color.toUpperCase()))].slice(0, 6);
-    }
-
-    function analyzeImage(file) {
-      if (!file || !/^image\/(jpeg|png|webp)$/.test(file.type)) {
-        showToast("请上传 jpg、png 或 webp 图片");
-        return;
-      }
-
-      const reader = new FileReader();
-      reader.onload = () => {
-        preview.src = reader.result;
-        preview.style.display = "block";
-      };
-      reader.readAsDataURL(file);
-
-      const objectUrl = URL.createObjectURL(file);
-      const image = new Image();
-      image.onload = () => {
-        let colors = [];
-
-        try {
-          if (window.ColorThief) {
-            const thief = new ColorThief();
-            colors = thief.getPalette(image, 6).map(([r, g, b]) => rgbToHex(r, g, b));
-          }
-        } catch (error) {
-          colors = [];
-        }
-
-        if (colors.length < 4) {
-          colors = fallbackExtractColors(image, 6);
-        }
-
-        colors = uniqueColors(colors);
-        if (colors.length < 4) {
-          colors = defaultPresets[0].colors;
-          showToast("图片颜色较少，已显示示例配色");
-        }
-
-        activePreset = "";
-        renderPalette(colors, "图片主色系", "从上传图片中提取的主要颜色，可加入收藏并在下方复用。", { canSave: true });
-        renderPresets();
-        URL.revokeObjectURL(objectUrl);
-      };
-      image.onerror = () => {
-        URL.revokeObjectURL(objectUrl);
-        showToast("图片读取失败");
-      };
-      image.src = objectUrl;
-    }
-
-    uploadButton.addEventListener("click", () => imageInput.click());
-    imageInput.addEventListener("change", (event) => analyzeImage(event.target.files[0]));
-    authForm.addEventListener("submit", (event) => event.preventDefault());
-    signUpButton.addEventListener("click", handleSignUp);
-    signInButton.addEventListener("click", handleSignIn);
-    accountTrigger.addEventListener("click", toggleAccountDropdown);
-    document.addEventListener("click", (event) => {
-      if (!accountDropdown.contains(event.target) && event.target !== accountTrigger && !accountTrigger.contains(event.target)) {
-        accountDropdown.classList.remove("open");
-        accountTrigger.classList.remove("open");
-      }
+    uploadButton.addEventListener("click",()=>imageInput.click());
+    imageInput.addEventListener("change",(e)=>analyzeImage(e.target.files[0]));
+    authForm.addEventListener("submit",(e)=>e.preventDefault());
+    signUpButton.addEventListener("click",handleSignUp);
+    signInButton.addEventListener("click",handleSignIn);
+    accountTrigger.addEventListener("click",toggleAccountDropdown);
+    document.addEventListener("click",(e)=>{if(!accountDropdown.contains(e.target)&&e.target!==accountTrigger&&!accountTrigger.contains(e.target)){accountDropdown.classList.remove("open");accountTrigger.classList.remove("open");}});
+    copyAll.addEventListener("click",()=>copyText(currentColors.map(c=>formatColor(c)).join(", "),"整组配色已复制"));
+    exportCSS.addEventListener("click",()=>{copyText(generateCSSVariables(currentColors,paletteTitle.textContent),"CSS 变量已复制");});
+    exportJSON.addEventListener("click",()=>exportAsJSON(currentColors,paletteTitle.textContent));
+    formatSwitcher.addEventListener("click",(e)=>{
+      const btn=e.target.closest(".format-btn");if(!btn)return;
+      formatSwitcher.querySelectorAll(".format-btn").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");colorFormat=btn.dataset.format;
+      renderPalette(currentColors,paletteTitle.textContent,paletteDesc.textContent,{canSave:canSaveCurrentPalette});
     });
-    copyAll.addEventListener("click", () => copyText(currentColors.join(", "), "整组配色已复制"));
-    savePalette.addEventListener("click", () => {
-      if (!canSaveCurrentPalette) return;
-
-      const existing = findPresetByColors(currentColors);
-      if (existing) {
-        activePreset = existing.id;
-        renderPalette(existing.colors, existing.name, "这组配色已在收藏中，可点击色号或复制整组。");
-        renderPresets();
-        showToast("这组配色已在收藏中");
-        return;
-      }
-
-      const nextIndex = customPresets.length + 1;
-      const preset = {
-        id: createPresetId(),
-        name: `图片配色 ${nextIndex}`,
-        colors: currentColors.map((color) => color.toUpperCase()),
-        custom: true
-      };
-
-      customPresets.push(preset);
-      saveCustomPresets();
-      activePreset = preset.id;
-      renderPalette(preset.colors, preset.name, "已加入收藏色号，可点击色号或复制整组。");
-      renderPresets();
-      showToast("已加入收藏");
+    savePalette.addEventListener("click",()=>{
+      if(!canSaveCurrentPalette)return;
+      const existing=findPresetByColors(currentColors);
+      if(existing){activePreset=existing.id;renderPalette(existing.colors,existing.name,"这组配色已在收藏中，可点击色号或复制整组。");renderPresets();showToast("这组配色已在收藏中");return;}
+      const nextIndex=customPresets.length+1,preset={id:createPresetId(),name:`图片配色 ${nextIndex}`,colors:currentColors.map(c=>c.toUpperCase()),custom:true};
+      customPresets.push(preset);saveCustomPresets();activePreset=preset.id;
+      renderPalette(preset.colors,preset.name,"已加入收藏色号，可点击色号或复制整组。");renderPresets();showToast("已加入收藏");
     });
+    ["dragenter","dragover"].forEach(en=>dropZone.addEventListener(en,(e)=>{e.preventDefault();dropZone.classList.add("is-dragging");}));
+    ["dragleave","drop"].forEach(en=>dropZone.addEventListener(en,(e)=>{e.preventDefault();dropZone.classList.remove("is-dragging");}));
+    dropZone.addEventListener("drop",(e)=>analyzeImage(e.dataTransfer.files[0]));
 
-    ["dragenter", "dragover"].forEach((eventName) => {
-      dropZone.addEventListener(eventName, (event) => {
-        event.preventDefault();
-        dropZone.classList.add("is-dragging");
-      });
-    });
-
-    ["dragleave", "drop"].forEach((eventName) => {
-      dropZone.addEventListener(eventName, (event) => {
-        event.preventDefault();
-        dropZone.classList.remove("is-dragging");
-      });
-    });
-
-    dropZone.addEventListener("drop", (event) => {
-      analyzeImage(event.dataTransfer.files[0]);
-    });
-
-    renderPalette(presets[0].colors, presets[0].name, "默认展示示例配色，点击色号即可复制。");
-    renderPresets();
-    updateAuthUI();
-    presetSearch.addEventListener("input", () => {
-      presetFilter = presetSearch.value;
-      renderPresets();
-    });
-    if (supabaseClient) {
-      supabaseClient.auth.onAuthStateChange(async (event, session) => {
-        const nextUser = session?.user || null;
-        // Always process sign-in: set user and load cloud data
-        if (event === 'SIGNED_IN' && nextUser) {
-          currentUser = nextUser;
-          updateAuthUI();
-          await loadStateFromCloud();
-          return;
-        }
-        // For other events, skip if state hasn't changed
-        if (nextUser?.id === (currentUser && currentUser.id)) return;
-        if (!nextUser && !currentUser) return;
-        currentUser = nextUser;
-        updateAuthUI();
-        if (currentUser) await loadStateFromCloud();
+    renderPalette(presets[0].colors,presets[0].name,"默认展示示例配色，点击色号即可复制。");
+    renderPresets();updateAuthUI();
+    presetSearch.addEventListener("input",()=>{presetFilter=presetSearch.value;renderPresets();});
+    if(supabaseClient){
+      supabaseClient.auth.onAuthStateChange(async(event,session)=>{
+        const nextUser=session?.user||null;
+        if(event==='SIGNED_IN'&&nextUser){currentUser=nextUser;updateAuthUI();await loadStateFromCloud();return;}
+        if(nextUser?.id===(currentUser&&currentUser.id))return;if(!nextUser&&!currentUser)return;
+        currentUser=nextUser;updateAuthUI();if(currentUser)await loadStateFromCloud();
       });
       refreshSession();
     }
